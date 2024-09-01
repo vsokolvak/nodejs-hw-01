@@ -1,7 +1,7 @@
 import { createFakeContact } from "../utils/createFakeContact.js";
 import { writeContacts } from "../utils/writeContacts.js";
 
-const generateContacts = async (number) => {
+export const generateContacts = async (number) => {
   const data = [];
   for (let index = 0; index < number; index++) {
     const newContact = createFakeContact();
@@ -10,5 +10,3 @@ const generateContacts = async (number) => {
 
   await writeContacts(data);
 };
-
-generateContacts(5);
