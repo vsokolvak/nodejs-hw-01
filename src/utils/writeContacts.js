@@ -4,14 +4,12 @@ import { readContacts } from './readContacts.js';
 
 export const writeContacts = async (updatedContacts) => {
   try {
-    let data = await readContacts();
-    data.push(updatedContacts);
-    data = JSON.stringify(data);
+    const oldData = await readContacts();
+    const newData = oldData.concat(updatedContacts);
+    const data = JSON.stringify(newData);
     await fs.writeFile(PATH_DB, data, 'utf8');
-    console.log('sucsess');
     return 'sucsess';
   } catch (error) {
-    console.log('error');
     return error;
   }
 };
