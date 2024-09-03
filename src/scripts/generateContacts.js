@@ -9,4 +9,7 @@ export const generateContacts = async (number) => {
   };
 
   await writeContacts(data);
+  return `generated ${number} contacts`;
 };
+
+generateContacts(5);

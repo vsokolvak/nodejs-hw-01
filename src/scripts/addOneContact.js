@@ -1,7 +1,10 @@
-import { generateContacts } from "./generateContacts.js";
+import { writeContacts } from '../utils/writeContacts.js';
+import { createFakeContact } from '../utils/createFakeContact.js';
+
 
 export const addOneContact = async () => {
-  generateContacts(1);
+  const newContact = createFakeContact();
+  await writeContacts(newContact);
 };
 
 addOneContact();
